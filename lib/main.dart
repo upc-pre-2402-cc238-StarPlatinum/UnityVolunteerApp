@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'features/auth/presentation/screens/LoginScreen.dart';
-
+import 'features/auth/presentation/screens/OrganizacionScreen.dart';
 
 void main() {
   runApp(const MyApp());
