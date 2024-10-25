@@ -26,7 +26,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
     ),
     VoluntarioModel(
       usuarioId: 2,
-      nombre: 'Santiago Olivera',
+      nombre: 'David Fantasmon',
       intereses: 'Salud, Bienestar',
       experiencia: '3 años como paramédico',
       disponibilidad: 'Lunes a viernes',
@@ -34,6 +34,30 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
     VoluntarioModel(
       usuarioId: 3,
       nombre: 'Nicolas Cortez',
+      intereses: 'Medio ambiente, Energías renovables',
+      experiencia: '1 año en proyectos de sostenibilidad',
+      disponibilidad: 'Tiempo completo',
+    ),
+  ];
+  // Simulamos algunos voluntarios
+  List<VoluntarioModel> voluntariosSimulados2 = [
+    VoluntarioModel(
+      usuarioId: 1,
+      nombre: 'Geyko Rober',
+      intereses: 'Educación, Tecnología',
+      experiencia: '2 años en educación infantil',
+      disponibilidad: 'Fines de semana',
+    ),
+    VoluntarioModel(
+      usuarioId: 2,
+      nombre: 'Leonardo Soto',
+      intereses: 'Salud, Bienestar',
+      experiencia: '3 años como paramédico',
+      disponibilidad: 'Lunes a viernes',
+    ),
+    VoluntarioModel(
+      usuarioId: 3,
+      nombre: 'Rodrigo Oficial',
       intereses: 'Medio ambiente, Energías renovables',
       experiencia: '1 año en proyectos de sostenibilidad',
       disponibilidad: 'Tiempo completo',
@@ -95,7 +119,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
               ElevatedButton(
                 onPressed: _toggleListaVoluntarios,
                 child: Text(_mostrarListaVoluntarios
-                    ? 'Ocultar Nombres de Voluntarios'
+                    ? 'Ocultar Voluntarios Inscritos'
                     : 'Mostrar Nombres de Voluntarios'),
               ),
 
@@ -109,8 +133,8 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
               ElevatedButton(
                 onPressed: _toggleDetallesVoluntarios,
                 child: Text(_mostrarDetallesVoluntarios
-                    ? 'Ocultar Detalles de Voluntarios'
-                    : 'Mostrar Detalles de Voluntarios'),
+                    ? 'Ocultar Otros Voluntarios'
+                    : 'Mostrar Otros Voluntarios'),
               ),
 
               // Mostrar la lista de voluntarios con más detalles (si está activado)
@@ -129,7 +153,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
       columns: [
         DataColumn(label: Text('Nombre')),
       ],
-      rows: voluntariosSimulados
+      rows: voluntariosSimulados2
           .map((voluntario) => DataRow(cells: [
         DataCell(Text(voluntario.nombre)),
       ]))
