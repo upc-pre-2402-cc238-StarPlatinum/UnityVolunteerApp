@@ -1,5 +1,7 @@
 import 'package:app/features/auth/presentation/screens/Activity/CreateActivityScreen.dart';
 import 'package:flutter/material.dart';
+import '../../data/models/VoluntarioModel.dart';
+import 'Activity/ScreenListaVoluntarios.dart';
 import 'PerfilOrganizacionScreen.dart';
 
 class ScreenHomeOrganizacion extends StatefulWidget {
@@ -17,13 +19,35 @@ class _HomeOrganizacionState extends State<ScreenHomeOrganizacion> {
 
   late List<Widget> _Screens;
 
+  // Lista de voluntarios simulados
+  List<VoluntarioModel> voluntariosSimulados = [
+    VoluntarioModel(
+      usuarioId: 1,
+      intereses: 'Educación, Tecnología',
+      experiencia: '2 años en educación infantil',
+      disponibilidad: 'Fines de semana',
+    ),
+    VoluntarioModel(
+      usuarioId: 2,
+      intereses: 'Salud, Bienestar',
+      experiencia: '3 años como paramédico',
+      disponibilidad: 'Lunes a viernes',
+    ),
+    VoluntarioModel(
+      usuarioId: 3,
+      intereses: 'Medio ambiente, Energías renovables',
+      experiencia: '1 año en proyectos de sostenibilidad',
+      disponibilidad: 'Tiempo completo',
+    ),
+  ];
+
   @override
   void initState() {
     super.initState();
     _Screens = [
       _inicioScreen(),
       CreateActivityScreen(),
-      Center(child: Text('Ver Voluntarios')),
+      ScreenListaVoluntarios(voluntariosSimulados: voluntariosSimulados),
       Center(child: Text('Actividades Publicadas')),
       PerfilOrganizacionScreen(usuarioId: widget.usuarioId),
     ];

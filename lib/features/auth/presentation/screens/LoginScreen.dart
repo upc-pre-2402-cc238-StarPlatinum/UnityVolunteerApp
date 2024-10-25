@@ -1,8 +1,6 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../data/models/LoginRequestModel.dart';
-import '../../data/repositories/AuthRepository.dart';
-
 import 'ScreenHomeOrganizacion.dart';
 import 'ScreenHomeVoluntario.dart';
 import 'RegisterScreen.dart';
@@ -15,7 +13,6 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _correoController = TextEditingController();
   final _contrasenaController = TextEditingController();
-  final AuthRepository _authRepository = AuthRepository();
   bool _isLoading = false;
 
   // Login de usuario
@@ -24,26 +21,20 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = true;
     });
 
+    // Aquí iría tu lógica para hacer la llamada al backend
     try {
-      final loginModel = LoginModel(
-        correo: _correoController.text,
-        contrasena: _contrasenaController.text,
-      );
-
-      // Llamada al repositorio para iniciar sesión
-      final response = await _authRepository.loginUser(loginModel);
-
-      // Verificar que la respuesta contiene el nombre, tipoUsuario y usuarioId
-      final String tipoUsuario = response['tipoUsuario'];
-      final int usuarioId = response['usuarioId'];
-      final String nombre = response['nombre'];
+      // Simulación del login con datos del backend
+      // Si es exitoso, se redirige al usuario según el tipo de usuario.
+      final String tipoUsuario = "ORGANIZACION"; // Simulación de tipo de usuario
+      final int usuarioId = 1; // ID del usuario simulado
+      final String nombre = "Usuario Demo"; // Nombre simulado
 
       // Redirigir según el tipo de usuario
       if (tipoUsuario == 'VOLUNTARIO') {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>ScreenHomeVoluntario(usuarioId: usuarioId, nombre: nombre),
+            builder: (context) => ScreenHomeVoluntario(usuarioId: usuarioId, nombre: nombre),
           ),
         );
       } else if (tipoUsuario == 'ORGANIZACION') {
@@ -55,12 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
         );
       }
     } catch (e) {
-      // Mostrar mensaje de error si es 401 (correo o contraseña incorrecta)
-      if (e.toString().contains('Correo o contraseña incorrectos')) {
-        _showErrorDialog('Correo o contraseña incorrectos');
-      } else {
-        _showErrorDialog('Error en el inicio de sesión: $e');
-      }
+      _showErrorDialog('Error en el inicio de sesión: $e');
     } finally {
       setState(() {
         _isLoading = false;
@@ -86,6 +72,32 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  // ******************* INICIO DEL CÓDIGO AGREGADO *******************
+  // Acceso demo sin autenticación
+  void _accederConDemo() {
+    // Datos simulados para el usuario demo
+    final String tipoUsuario = 'ORGANIZACION'; // Cambia a 'VOLUNTARIO' si lo prefieres
+    final int usuarioId = 123;
+    final String nombre = 'Demo Org';
+
+    if (tipoUsuario == 'VOLUNTARIO') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ScreenHomeVoluntario(usuarioId: usuarioId, nombre: nombre),
+        ),
+      );
+    } else if (tipoUsuario == 'ORGANIZACION') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ScreenHomeOrganizacion(usuarioId: usuarioId, nombre: nombre),
+        ),
+      );
+    }
+  }
+  // ******************* FIN DEL CÓDIGO AGREGADO *******************
 
   @override
   Widget build(BuildContext context) {
@@ -165,6 +177,23 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 20),
 
+            // ******************* INICIO DEL BOTÓN NUEVO *******************
+            // Botón de usuario demo
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF3894B6),
+                padding: EdgeInsets.symmetric(vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: _accederConDemo, // Acción para el usuario demo
+              child: Text('Acceder con usuario demo', style: TextStyle(color: Colors.white)),
+            ),
+            // ******************* FIN DEL BOTÓN NUEVO *******************
+
+            SizedBox(height: 20),
+
             // Recuperar contraseña y Sign Up
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -194,3 +223,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+

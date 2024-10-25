@@ -60,7 +60,7 @@ class CreateActivityScreen extends StatelessWidget {
                 },
                 child: Text('Crear actividad'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0XFFFFF006),
+                backgroundColor: Color(0xFF3894B6),
               )
             ),
 
