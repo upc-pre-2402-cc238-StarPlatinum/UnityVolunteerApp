@@ -1,3 +1,4 @@
+import 'package:app/features/auth/presentation/screens/Activity/CreateActivityScreen.dart';
 import 'package:flutter/material.dart';
 import 'PerfilOrganizacionScreen.dart';
 
@@ -21,7 +22,7 @@ class _HomeOrganizacionState extends State<ScreenHomeOrganizacion> {
     super.initState();
     _Screens = [
       _inicioScreen(),
-      Center(child: Text('Crear Actividad')),
+      CreateActivityScreen(),
       Center(child: Text('Ver Voluntarios')),
       Center(child: Text('Actividades Publicadas')),
       PerfilOrganizacionScreen(usuarioId: widget.usuarioId),
