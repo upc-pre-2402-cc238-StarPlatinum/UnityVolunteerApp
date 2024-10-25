@@ -53,18 +53,21 @@ class _HomeOrganizacionState extends State<ScreenHomeOrganizacion> {
   List<VoluntarioModel> voluntariosSimulados = [
     VoluntarioModel(
       usuarioId: 1,
+      nombre: 'Eduardo Guerra',
       intereses: 'Educación, Tecnología',
       experiencia: '2 años en educación infantil',
       disponibilidad: 'Fines de semana',
     ),
     VoluntarioModel(
       usuarioId: 2,
+      nombre: 'Samir Rojas',
       intereses: 'Salud, Bienestar',
       experiencia: '3 años como paramédico',
       disponibilidad: 'Lunes a viernes',
     ),
     VoluntarioModel(
       usuarioId: 3,
+      nombre: 'Mateo Aldano',
       intereses: 'Medio ambiente, Energías renovables',
       experiencia: '1 año en proyectos de sostenibilidad',
       disponibilidad: 'Tiempo completo',

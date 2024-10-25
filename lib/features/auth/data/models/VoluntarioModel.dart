@@ -1,11 +1,13 @@
 class VoluntarioModel {
   final int usuarioId;
+  final String nombre;
   final String intereses;
   final String experiencia;
   final String disponibilidad;
 
   VoluntarioModel({
     required this.usuarioId,
+    required this.nombre,
     required this.intereses,
     required this.experiencia,
     required this.disponibilidad,
@@ -15,6 +17,7 @@ class VoluntarioModel {
   factory VoluntarioModel.fromJson(Map<String, dynamic> json) {
     return VoluntarioModel(
       usuarioId: json['usuarioId'],
+      nombre: json['nombre'],
       intereses: json['intereses'],
       experiencia: json['experiencia'],
       disponibilidad: json['disponibilidad'],
@@ -25,6 +28,7 @@ class VoluntarioModel {
   Map<String, dynamic> toJson() {
     return {
       'usuarioId': usuarioId,
+      'nombre': nombre,
       'intereses': intereses,
       'experiencia': experiencia,
       'disponibilidad': disponibilidad,
