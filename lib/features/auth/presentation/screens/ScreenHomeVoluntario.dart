@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../data/models/ActivityModel.dart';
+import 'Organization/ActivitiesScreen.dart';
 import 'PerfilVoluntarioScreen.dart';
 
 import 'Volunteer/ActivityDetail.dart';
@@ -17,7 +19,32 @@ class _HomeVoluntarioState extends State<ScreenHomeVoluntario> {
   int _selectedIndex = 0;
 
   late List<Widget> _Screens;
+  // *********** INICIO DE DATOS SIMULADOS ***********
+  List<ActivityModel> actividadesSimuladas = [
+    ActivityModel(
+      nombre: 'Actividad de Reciclaje',
+      descripcion: 'Una actividad para fomentar el reciclaje en la comunidad.',
+      tipoActividad: 'Medio Ambiente',
+      duracionDias: 2,
+      imagenUrl: 'assets/images/reciclaje.jpeg',  // URL de la imagen
+    ),
+    ActivityModel(
+      nombre: 'Maratón Solidario',
+      descripcion: 'Un evento para recaudar fondos para obras sociales.',
+      tipoActividad: 'Deportivo',
+      duracionDias: 1,
+      imagenUrl: 'assets/images/maraton.jpeg',  // URL de la imagen
+    ),
+    ActivityModel(
+      nombre: 'Taller de Educación Digital',
+      descripcion: 'Capacitación para el uso de herramientas digitales en educación.',
+      tipoActividad: 'Educación',
+      duracionDias: 3,
+      imagenUrl: 'assets/images/taller.jpg',  // URL de la imagen
+    ),
+  ];
 
+  // *********** FIN DE DATOS SIMULADOS ***********
   @override
   void initState() {
     super.initState();
@@ -25,7 +52,7 @@ class _HomeVoluntarioState extends State<ScreenHomeVoluntario> {
       _inicioScreen(),
       Center(child: Text('Notificaciones')),
       ActivityDetail(),
-      Center(child: Text('Notificaciones')),
+    ActivitiesScreen(actividades: actividadesSimuladas),
       PerfilVoluntarioScreen(usuarioId: widget.usuarioId),
     ];
   }
