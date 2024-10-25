@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
   // Acceso demo sin autenticación
   void _accederConDemo() {
     // Datos simulados para el usuario demo
-    final String tipoUsuario = 'ORGANIZACION'; // Cambia a 'VOLUNTARIO' si lo prefieres
+    final String tipoUsuario = 'VOLUNTARIO'; // Cambia a 'VOLUNTARIO' si lo prefieres
     final int usuarioId = 123;
     final String nombre = 'Demo Org';
 
@@ -135,7 +135,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(height: 20),
-
             // Password TextField
             TextField(
               controller: _contrasenaController,

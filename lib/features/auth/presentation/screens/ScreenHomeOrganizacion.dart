@@ -1,9 +1,10 @@
-import 'package:app/features/auth/presentation/screens/Activity/CreateActivityScreen.dart';
+
 import 'package:flutter/material.dart';
 import '../../data/models/ActivityModel.dart';
 import '../../data/models/VoluntarioModel.dart';
-import 'Activity/ActivitiesScreen.dart';
-import 'Activity/ScreenListaVoluntarios.dart';
+import 'Organization/ActivitiesScreen.dart';
+import 'Organization/CreateActivityScreen.dart';
+import 'Organization/ScreenListaVoluntarios.dart';
 import 'PerfilOrganizacionScreen.dart';
 
 class ScreenHomeOrganizacion extends StatefulWidget {
@@ -48,6 +49,7 @@ class _HomeOrganizacionState extends State<ScreenHomeOrganizacion> {
   ];
 
   // *********** FIN DE DATOS SIMULADOS ***********
+
 
   // Lista de voluntarios simulados
   List<VoluntarioModel> voluntariosSimulados = [

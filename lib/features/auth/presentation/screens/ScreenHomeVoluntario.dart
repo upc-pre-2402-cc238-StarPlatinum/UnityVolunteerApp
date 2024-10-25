@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'PerfilVoluntarioScreen.dart';
 
+import 'Volunteer/ActivityDetail.dart';
+
 class ScreenHomeVoluntario extends StatefulWidget {
   final String nombre;
   final int usuarioId;
@@ -21,8 +23,8 @@ class _HomeVoluntarioState extends State<ScreenHomeVoluntario> {
     super.initState();
     _Screens = [
       _inicioScreen(),
-      Center(child: Text('Buscar Actividades')),
-      Center(child: Text('Actividades Programadas')),
+      Center(child: Text('Notificaciones')),
+      ActivityDetail(),
       Center(child: Text('Notificaciones')),
       PerfilVoluntarioScreen(usuarioId: widget.usuarioId),
     ];
