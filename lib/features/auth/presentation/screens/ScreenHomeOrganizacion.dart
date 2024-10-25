@@ -1,6 +1,8 @@
 import 'package:app/features/auth/presentation/screens/Activity/CreateActivityScreen.dart';
 import 'package:flutter/material.dart';
+import '../../data/models/ActivityModel.dart';
 import '../../data/models/VoluntarioModel.dart';
+import 'Activity/ActivitiesScreen.dart';
 import 'Activity/ScreenListaVoluntarios.dart';
 import 'PerfilOrganizacionScreen.dart';
 
@@ -18,6 +20,34 @@ class _HomeOrganizacionState extends State<ScreenHomeOrganizacion> {
   int _selectedIndex = 0;
 
   late List<Widget> _Screens;
+
+
+  // *********** INICIO DE DATOS SIMULADOS ***********
+  List<ActivityModel> actividadesSimuladas = [
+    ActivityModel(
+      nombre: 'Actividad de Reciclaje',
+      descripcion: 'Una actividad para fomentar el reciclaje en la comunidad.',
+      tipoActividad: 'Medio Ambiente',
+      duracionDias: 2,
+      imagenUrl: 'assets/images/reciclaje.jpeg',  // URL de la imagen
+    ),
+    ActivityModel(
+      nombre: 'Maratón Solidario',
+      descripcion: 'Un evento para recaudar fondos para obras sociales.',
+      tipoActividad: 'Deportivo',
+      duracionDias: 1,
+      imagenUrl: 'assets/images/maraton.jpeg',  // URL de la imagen
+    ),
+    ActivityModel(
+      nombre: 'Taller de Educación Digital',
+      descripcion: 'Capacitación para el uso de herramientas digitales en educación.',
+      tipoActividad: 'Educación',
+      duracionDias: 3,
+      imagenUrl: 'assets/images/taller.jpg',  // URL de la imagen
+    ),
+  ];
+
+  // *********** FIN DE DATOS SIMULADOS ***********
 
   // Lista de voluntarios simulados
   List<VoluntarioModel> voluntariosSimulados = [
@@ -48,7 +78,7 @@ class _HomeOrganizacionState extends State<ScreenHomeOrganizacion> {
       _inicioScreen(),
       CreateActivityScreen(),
       ScreenListaVoluntarios(voluntariosSimulados: voluntariosSimulados),
-      Center(child: Text('Actividades Publicadas')),
+      ActivitiesScreen(actividades: actividadesSimuladas),
       PerfilOrganizacionScreen(usuarioId: widget.usuarioId),
     ];
   }
