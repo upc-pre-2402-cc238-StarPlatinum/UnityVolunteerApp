@@ -75,9 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // ******************* INICIO DEL CÓDIGO AGREGADO *******************
   // Acceso demo sin autenticación
-  void _accederConDemo() {
+  void _accederConDemo(tipoUsuario) {
     // Datos simulados para el usuario demo
-    final String tipoUsuario = 'VOLUNTARIO'; // Cambia a 'VOLUNTARIO' si lo prefieres
+
     final int usuarioId = 123;
     final String nombre = 'Demo Org';
 
@@ -186,13 +186,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              onPressed: _accederConDemo, // Acción para el usuario demo
-              child: Text('Acceder con usuario demo', style: TextStyle(color: Colors.white)),
+              onPressed: ()=> _accederConDemo("ORGANIZACION"), // Acción para el usuario demo
+              child: Text('Acceder como organización', style: TextStyle(color: Colors.white)),
             ),
             // ******************* FIN DEL BOTÓN NUEVO *******************
 
             SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightGreen,
+                padding: EdgeInsets.symmetric(vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: ()=> _accederConDemo("VOLUNTARIO"), // Acción para el usuario demo
+              child: Text('Acceder como voluntario', style: TextStyle(color: Colors.white)),
+            ),
+            // ******************* FIN DEL BOTÓN NUEVO *******************
 
+            SizedBox(height: 20),
             // Recuperar contraseña y Sign Up
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
