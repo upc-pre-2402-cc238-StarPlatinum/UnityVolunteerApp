@@ -1,6 +1,7 @@
+import 'package:app/features/auth/presentation/screens/Volunteer/NotificationsScreen.dart';
 import 'package:flutter/material.dart';
 import '../../data/models/ActivityModel.dart';
-import 'Organization/ActivitiesScreen.dart';
+
 import 'PerfilVoluntarioScreen.dart';
 
 import 'Volunteer/ActivityDetail.dart';
@@ -22,22 +23,43 @@ class _HomeVoluntarioState extends State<ScreenHomeVoluntario> {
   // *********** INICIO DE DATOS SIMULADOS ***********
   List<ActivityModel> actividadesSimuladas = [
     ActivityModel(
-      nombre: 'Actividad de Reciclaje',
-      descripcion: 'Una actividad para fomentar el reciclaje en la comunidad.',
-      tipoActividad: 'Medio Ambiente',
+      nombre: 'Te Necesitamos!',
+      descripcion: 'Unetenos a fomentar el reciclaje en la comunidad.',
       duracionDias: 2,
-      imagenUrl: 'assets/images/reciclaje.jpeg',  // URL de la imagen
+      imagenUrl: 'assets/images/reciclaje.jpeg',
+      tipoActividad: 'Medio ambiente',  // URL de la imagen
     ),
     ActivityModel(
-      nombre: 'Maratón Solidario',
-      descripcion: 'Un evento para recaudar fondos para obras sociales.',
+      nombre: 'Esta organización te está buscando!',
+      descripcion: 'Escribenos a anita@organizacionbenefica.com',
       tipoActividad: 'Deportivo',
       duracionDias: 1,
       imagenUrl: 'assets/images/maraton.jpeg',  // URL de la imagen
     ),
     ActivityModel(
-      nombre: 'Taller de Educación Digital',
-      descripcion: 'Capacitación para el uso de herramientas digitales en educación.',
+      nombre: 'Ayudanos a salvar el planeta',
+      descripcion: 'Planta arboles con nosotros!',
+      tipoActividad: 'Educación',
+      duracionDias: 3,
+      imagenUrl: 'assets/images/taller.jpg',  // URL de la imagen
+    ),
+    ActivityModel(
+      nombre: 'Únetenos!!',
+      descripcion: 'Unetenos a fomentar el reciclaje en la comunidad.',
+      duracionDias: 2,
+      imagenUrl: 'assets/images/reciclaje.jpeg',
+      tipoActividad: 'Medio ambiente',  // URL de la imagen
+    ),
+    ActivityModel(
+      nombre: 'Te queremos contactar!',
+      descripcion: 'Escribenos a pepito@organizacionbenefica.com',
+      tipoActividad: 'Deportivo',
+      duracionDias: 1,
+      imagenUrl: 'assets/images/maraton.jpeg',  // URL de la imagen
+    ),
+    ActivityModel(
+      nombre: 'Ayudanos a salvar el planeta',
+      descripcion: 'Planta arboles con nosotros!',
       tipoActividad: 'Educación',
       duracionDias: 3,
       imagenUrl: 'assets/images/taller.jpg',  // URL de la imagen
@@ -50,9 +72,9 @@ class _HomeVoluntarioState extends State<ScreenHomeVoluntario> {
     super.initState();
     _Screens = [
       _inicioScreen(),
-      Center(child: Text('Notificaciones')),
+      Center(child: Text('Actividades')),
       ActivityDetail(),
-    ActivitiesScreen(actividades: actividadesSimuladas),
+      NotificationsScreen(notificaciones: actividadesSimuladas),
       PerfilVoluntarioScreen(usuarioId: widget.usuarioId),
     ];
   }
